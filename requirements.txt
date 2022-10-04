@@ -4,4 +4,5 @@ BeautifulSoup4
 pymongo
 requests
 regex
-
+streamlit-aggrid
+click==8
