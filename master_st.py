@@ -92,10 +92,10 @@ l#oad_data(sf_lib)
 
 #get pickled data
 #with open('card_table.pickle','rb') as g:
-	df_table = pickle.load(g)
+#	df_table = pickle.load(g)
 
 #with open('card_img.pickle','rb') as g:
-	df_img = pickle.load(g)
+#	df_img = pickle.load(g)
 
 #selection = aggrid_interactive_table(df=df_table)
 
