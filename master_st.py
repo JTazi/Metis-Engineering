@@ -82,18 +82,25 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
 #run code for data acquisition and streamlit app
 
-client = MongoClient()
-url = get_url()
-sf_lib = get_api_data(url)
-load_data(sf_lib)
+#client = MongoClient()
+#url = get_url()
+#sf_lib = get_api_data(url)
+l#oad_data(sf_lib)
 
-table_df = table_query_df()
+#table_df = table_query_df()
 
-selection = aggrid_interactive_table(df=table_df)
+#get pickled data
+with open('card_table.pickle','rb') as g:
+	df_table = pickle.load(g)
+
+with open('card_img.pickle','rb') as g:
+	df_img = pickle.load(g)
+
+selection = aggrid_interactive_table(df=df_table)
 
 card_name = selection["selected_rows"][0]['name']
 
-img_uri = image_df(card_name)
+img_uri = df_img(card_name)
 
 st.set_page_config(
     layout="centered", page_icon="🖱️", page_title="MGT Card Table"
