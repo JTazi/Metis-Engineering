@@ -1,0 +1,10 @@
+
+pandas
+streamlit
+BeautifulSoup
+pymongo
+requests
+re
+st_aggrid
+
+https://github.com/JTazi/Metis-Engineering/blob/main/mtg_data.py
