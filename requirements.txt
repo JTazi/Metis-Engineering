@@ -1,6 +1,6 @@
 pandas
 streamlit
-BeautifulSoup
+BeautifulSoup4
 pymongo
 requests
 re
