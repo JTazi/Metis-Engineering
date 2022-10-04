@@ -6,3 +6,4 @@ requests
 regex
 streamlit-aggrid
 click==8
+pickle
