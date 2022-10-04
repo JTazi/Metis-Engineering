@@ -7,7 +7,7 @@ import re
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 #is this right?
-import mtg_data
+from mtg_data import startup
 
 init_mongo()
 db.cards = startup()
