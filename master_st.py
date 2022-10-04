@@ -91,17 +91,17 @@ l#oad_data(sf_lib)
 #table_df = table_query_df()
 
 #get pickled data
-with open('card_table.pickle','rb') as g:
+#with open('card_table.pickle','rb') as g:
 	df_table = pickle.load(g)
 
-with open('card_img.pickle','rb') as g:
+#with open('card_img.pickle','rb') as g:
 	df_img = pickle.load(g)
 
-selection = aggrid_interactive_table(df=df_table)
+#selection = aggrid_interactive_table(df=df_table)
 
-card_name = selection["selected_rows"][0]['name']
+#card_name = selection["selected_rows"][0]['name']
 
-img_uri = df_img(card_name)
+#img_uri = df_img(card_name)
 
 st.set_page_config(
     layout="centered", page_icon="🖱️", page_title="MGT Card Table"
@@ -114,7 +114,7 @@ st.write(
 #aggrid returns dictionary with data and selected, selected being a list of selected rows
 #i get ID of selected row, use that to get URI of image from image collection
 
-if selection:
+#if selection:
     #st.write("You selected:")
     #st.json(selection["selected_rows"])
-    st.image(img_uri)
+    #st.image(img_uri)
