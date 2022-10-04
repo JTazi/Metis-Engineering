@@ -27,11 +27,6 @@ def get_api_data(url):
 	#return list of json objects, one for each card object from api
 	return mtg_lib
 	
-def init_mongo():
-	#create client instance
-	client = MongoClient()
-	return client
-	
 def load_data(data):
 	#load bulk json into mongodb, only do once every few months as new cards added
 	# create cards database and assign to db
@@ -40,7 +35,6 @@ def load_data(data):
 	cards = db.cards
 	#add cards json from request to cards collection
 	cards.insert_many(data)
-	return db.cards
 
 def table_query_df():
 	cursor = db.cards.find({}, {'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
@@ -49,6 +43,7 @@ def table_query_df():
 	return df
 	
 def image_df(card_name):
+	db = client.mtg
 	cursor = db.cards.find({'name':card_name},{'image_uris':1})
 	cur_list = list(cursor)
 	image_uri = cur_list[0]['image_uris']['normal'] 
@@ -87,8 +82,10 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
 #run code for data acquisition and streamlit app
 
-client = init_mongo()
-db.cards = startup()
+client = MongoClient()
+url = get_url()
+sf_lib = get_api_data(url)
+load_data(sf_lib)
 
 table_df = table_query_df()
 
