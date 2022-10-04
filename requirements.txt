@@ -3,5 +3,5 @@ streamlit
 BeautifulSoup4
 pymongo
 requests
-re
+regex
 st_aggrid
