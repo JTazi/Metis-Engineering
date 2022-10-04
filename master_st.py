@@ -39,7 +39,7 @@ def load_data(data):
 	#create card collection in mtg database
 	cards = db.cards
 	#add cards json from request to cards collection
-	cards.insert_many(mtg_lib)
+	cards.insert_many(data)
 	return db.cards
 
 def table_query_df():
