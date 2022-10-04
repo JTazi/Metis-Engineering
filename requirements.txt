@@ -4,4 +4,4 @@ BeautifulSoup4
 pymongo
 requests
 regex
-st_aggrid
+
