@@ -97,6 +97,14 @@ card_name = selection["selected_rows"][0]['name']
 
 img_uri = image_df(card_name)
 
+st.set_page_config(
+    layout="centered", page_icon="🖱️", page_title="MGT Card Table"
+)
+st.title("Magic The Gather Card Table")
+st.write(
+    """This app lets you search through all the MTG Cards and select them in the table for additional information."""
+)
+
 #aggrid returns dictionary with data and selected, selected being a list of selected rows
 #i get ID of selected row, use that to get URI of image from image collection
 
