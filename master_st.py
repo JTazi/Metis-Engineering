@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup as bs
 from pymongo import MongoClient
 import pandas as pd
 import requests
+import pickle
 import re
 import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
