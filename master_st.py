@@ -32,7 +32,7 @@ def init_mongo():
 	client = MongoClient()
 	return client
 	
-def load_data(data)
+def load_data(data):
 	#load bulk json into mongodb, only do once every few months as new cards added
 	# create cards database and assign to db
 	db = client.mtg
@@ -48,7 +48,7 @@ def table_query_df():
 	df = pd.DataFrame(cur_list)
 	return df
 	
-def image_df(card_name)
+def image_df(card_name):
 	cursor = db.cards.find({'name':card_name},{'image_uris':1})
 	cur_list = list(cursor)
 	image_uri = cur_list[0]['image_uris']['normal'] 
