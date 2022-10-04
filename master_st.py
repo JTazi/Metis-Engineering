@@ -29,7 +29,8 @@ def get_api_data(url):
 	
 def init_mongo():
 	#create client instance
-	return client = MongoClient()
+	client = MongoClient()
+	return client
 	
 def load_data(data)
 	#load bulk json into mongodb, only do once every few months as new cards added
@@ -86,7 +87,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
 #run code for data acquisition and streamlit app
 
-init_mongo()
+client = init_mongo()
 db.cards = startup()
 
 table_df = table_query_df()
