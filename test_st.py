@@ -70,7 +70,13 @@ def aggrid_interactive_table(df: pd.DataFrame):
     )
 
     return selection
-  
+ 
+# USer input on sidebar
+add_selectbox = st.sidebar.selectbox(
+    "What color mana do you want to see?",
+    ("Red", "Blue", "White", "Black", "Green")
+)	
+	
 selection = aggrid_interactive_table(df=df_table)
 
 if selection:
