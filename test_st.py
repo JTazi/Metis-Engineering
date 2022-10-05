@@ -83,8 +83,8 @@ set_select = st.sidebar.selectbox(
     (set_list)
 )
 
-st.sidebar.write(
-    """For more information on keywords: [Keyword Wiki](keyword_url)"""
+st.sidebar.markdown(
+    "For more information on keywords: [Keyword Wiki](keyword_url)"
 )
 
 table_data = get_table_data(set_select)
