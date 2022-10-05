@@ -77,8 +77,6 @@ add_selectbox = st.sidebar.selectbox(
     ("Red", "Blue", "White", "Black", "Green")
 )	
 
-with st.sidebar:
-		st.add_selectbox
 		
 selection = aggrid_interactive_table(df=df_table)
 
