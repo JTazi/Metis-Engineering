@@ -29,8 +29,8 @@ st.write("Go ahead, click on a row in the table below!")
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-	#'mongodb+srv://jtaz:mtg123!!!@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority'
-	return pymongo.MongoClient(**st.secrets["mongo"])
+	#**st.secrets["mongo"]
+	return pymongo.MongoClient('mongodb+srv://jtaz:mtg123!!!@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority')
 
 client = init_connection()
 
