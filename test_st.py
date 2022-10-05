@@ -18,7 +18,7 @@ keyword_url = 'https://en.wikipedia.org/wiki/List_of_Magic:_The_Gathering_keywor
 st.set_page_config(
     layout="centered", page_icon='https://github.com/JTazi/Metis-Engineering/blob/901e6b1f820c12b29199ef635e835f4f2d395280/kisspng-magic-the-gathering-duels-of-the-planeswalker-magic-the-gathering-commander-5b1c8faf3cc9e6.955806671528598447249.png', page_title="MTG Table App"
 )
-st.title("MTG Table app")
+st.title("Magic the Gathering Card Browser")
 st.write(
     """This app lets you sort and filter Magic the Gathering cards while also selecting a row for additional information"""
 )
