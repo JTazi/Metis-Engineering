@@ -76,7 +76,10 @@ add_selectbox = st.sidebar.selectbox(
     "What color mana do you want to see?",
     ("Red", "Blue", "White", "Black", "Green")
 )	
-	
+
+with st.sidebar:
+		st.add_selectbox
+		
 selection = aggrid_interactive_table(df=df_table)
 
 if selection:
