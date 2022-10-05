@@ -36,7 +36,7 @@ def get_table_data():
   
 def img_uri(card_name):
 	db = client.mtg
-	cursor = db.cards.find({'name':card_name},{'image_uris':1})
+	cursor = db.cards.find({'name':card_name},{'_id':0, 'image_uris':1})
 	cur_list = list(cursor)
 	image_uri = cur_list[0]['image_uris']['normal'] 
 	return image_uri
