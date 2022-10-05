@@ -8,6 +8,7 @@ from st_aggrid.shared import GridUpdateMode
 
 mana_dict = {"Red":"R", "Blue":"U", "White":"W", "Black":"B", "Green":"G", "Colorless":""}
 
+#streamlit page config
 st.set_page_config(
     layout="centered", page_icon='https://github.com/JTazi/Metis-Engineering/blob/901e6b1f820c12b29199ef635e835f4f2d395280/kisspng-magic-the-gathering-duels-of-the-planeswalker-magic-the-gathering-commander-5b1c8faf3cc9e6.955806671528598447249.png', page_title="MTG Table App"
 )
@@ -18,7 +19,7 @@ st.write(
 
 st.write("Go ahead, click on a row in the table below!")
 
-# Initialize connection.
+#functions
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
@@ -44,9 +45,6 @@ def img_uri(card_name):
 	image_uri = cur_list[0]['image_uris']['normal'] 
 	return image_uri
 
-table_data = get_table_data()
-df_table = pd.DataFrame(table_data)
-
 def aggrid_interactive_table(df: pd.DataFrame):
     """Creates an st-aggrid interactive table based on a dataframe.
     Args:
@@ -71,13 +69,16 @@ def aggrid_interactive_table(df: pd.DataFrame):
     )
 
     return selection
- 
+
+#app code
 # USer input on sidebar
 mana_select = st.sidebar.selectbox(
     "What color mana do you want to see?",
     ("Red", "Blue", "White", "Black", "Green", "Colorless")
 )	
 
+table_data = get_table_data(mana_select)
+df_table = pd.DataFrame(table_data)
 		
 selection = aggrid_interactive_table(df=df_table)
 
