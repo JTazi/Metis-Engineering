@@ -18,10 +18,10 @@ client = init_connection()
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def get_table_data():
-    db = client.mtg
-    cursor = db.cards.find({}, {'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
-    table_data = list(cursor)  # make hashable for st.experimental_memo
-    return table_data
+	db = client.mtg
+	cursor = db.cards.find({}, {'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
+	table_data = list(cursor)  # make hashable for st.experimental_memo
+	return table_data
   
 def img_uri(card_name):
 	db = client.mtg
@@ -71,9 +71,9 @@ def aggrid_interactive_table(df: pd.DataFrame):
   
 selection = aggrid_interactive_table(df=df_table)
 
- if selection:
-    st.write("You selected:")
-    st.json(selection["selected_rows"])
-    card_name = selection["selected_rows"][0]['name']
-    img_uri = img_uri(card_name)
-    st.image(img_uri)
+if selection:
+	st.write("You selected:")
+	st.json(selection["selected_rows"])
+	card_name = selection["selected_rows"][0]['name']
+	img_uri = img_uri(card_name)
+	st.image(img_uri)
