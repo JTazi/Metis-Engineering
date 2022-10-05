@@ -34,7 +34,7 @@ client = init_connection()
 @st.experimental_memo(ttl=1200)
 def get_table_data(set_list):
 	db = client.mtg
-	cursor = db.cards.find({'set_name':set_list}, {'_id':0, 'name':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
+	cursor = db.cards.find({'set_name':set_list}, {'_id':0, 'name':1, 'type_line':1, 'power':1,'toughness':1, 'rarity':1})
 	table_data = list(cursor)  # make hashable for st.experimental_memo
 	return table_data
 
@@ -74,7 +74,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
 #app code
 # USer input on sidebar
 mana_select = st.sidebar.selectbox(
-    "What color mana do you want to see?",
+    "What set do you want to search?",
     (set_list)
 )	
 
