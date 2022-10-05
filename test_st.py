@@ -6,6 +6,16 @@ import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
+st.set_page_config(
+    layout="centered", page_icon="🖱️", page_title="MTG Table App"
+)
+st.title("MTG Table app")
+st.write(
+    """This app lets you sort and filter Magic the Gathering cards while also selecting a row for additional information"""
+)
+
+st.write("Go ahead, click on a row in the table below!")
+
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
@@ -33,17 +43,6 @@ def img_uri(card_name):
 
 table_data = get_table_data()
 df_table = pd.DataFrame(table_data)
-
-st.set_page_config(
-    layout="centered", page_icon="🖱️", page_title="MTG Table App"
-)
-st.title("MTG Table app")
-st.write(
-    """This app lets you sort and filter Magic the Gathering cards while also selecting a row for additional information"""
-)
-
-
-st.write("Go ahead, click on a row in the table below!")
 
 def aggrid_interactive_table(df: pd.DataFrame):
     """Creates an st-aggrid interactive table based on a dataframe.
