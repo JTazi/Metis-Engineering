@@ -87,7 +87,7 @@ st.sidebar.markdown(
 	"For more information on keywords: [Keyword Wiki](https://en.wikipedia.org/wiki/List_of_Magic:_The_Gathering_keywords)",
 	unsafe_allow_html=True
 )
-st.sidebar.markdown("[Card Image](#Card-Image:)")
+st.sidebar.markdown("[Card Image](#card-image)")
 
 table_data = get_table_data(set_select)
 df_table = pd.DataFrame(table_data)
@@ -95,7 +95,7 @@ df_table = pd.DataFrame(table_data)
 selection = aggrid_interactive_table(df=df_table)
 
 if selection != False:
-	st.header("Card Image:")
+	st.header("Card Image")
 	card_name = selection["selected_rows"][0]['name']
 	img_uri = img_uri(card_name)
 	st.image(img_uri)
