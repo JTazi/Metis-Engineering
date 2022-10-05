@@ -44,6 +44,9 @@ def get_table_data(set_list):
 	table_data = list(cursor)  # make hashable for st.experimental_memo
 	return table_data
 
+
+#known error displaying cards with "double face token" layout
+#they have a different dictionary structure than normal cards because they have front and back faces
 @st.experimental_memo(ttl=600)  
 def img_uri(card_name):
 	db = client.mtg
