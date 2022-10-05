@@ -75,6 +75,6 @@ selection = aggrid_interactive_table(df=df_table)
 
 if selection:
 	st.write("You selected:")
-	#card_name = selection["selected_rows"][0]['name']
-	#img_uri = img_uri(card_name)
-	#st.image(img_uri)
+	card_name = selection["selected_rows"][0]['name']
+	img_uri = img_uri(card_name)
+	st.image(img_uri)
