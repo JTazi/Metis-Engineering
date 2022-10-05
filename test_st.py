@@ -95,7 +95,7 @@ df_table = pd.DataFrame(table_data)
 		
 selection = aggrid_interactive_table(df=df_table)
 
-if selection != False:
+if selection["selected_rows"] != False:
 	st.header("Card Image")
 	card_name = selection["selected_rows"][0]['name']
 	img_uri = img_uri(card_name)
