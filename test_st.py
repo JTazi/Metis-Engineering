@@ -31,9 +31,9 @@ client = init_connection()
 def get_table_data():
 	db = client.mtg
 	#'_id':0, 'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1
-	cursor = db.cards.find({}, {'_id':0, 'name':1, 'type_line':1})
+	cursor = db.cards.find({'type_line':'Creature — Sliver'}, {'_id':0, 'name':1, 'type_line':1})
 	table_data = list(cursor)  # make hashable for st.experimental_memo
-	return table_data[0:50]
+	return table_data
 
 @st.experimental_memo(ttl=600)  
 def img_uri(card_name):
