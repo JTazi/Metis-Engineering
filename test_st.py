@@ -10,7 +10,8 @@ from st_aggrid.shared import GridUpdateMode
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    return pymongo.MongoClient(**st.secrets["mongo"])
+	#**st.secrets["mongo"]
+	return pymongo.MongoClient('mongodb+srv://jtaz:<password>@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority')
 
 client = init_connection()
 
