@@ -9,6 +9,9 @@ import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
+# code to connect to mongodb atlas server in MongoClient()
+#mongodb+srv://jtaz:<password>@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority
+
 #define functions
 def get_url():
 	#get html code for scryfall bulk download page
