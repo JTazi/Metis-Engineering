@@ -34,7 +34,8 @@ def get_table_data():
 	cursor = db.cards.find({}, {'_id':0, 'name':1, 'type_line':1})
 	table_data = list(cursor)  # make hashable for st.experimental_memo
 	return table_data
-  
+
+@st.experimental_memo(ttl=600)  
 def img_uri(card_name):
 	db = client.mtg
 	cursor = db.cards.find({'name':card_name},{'_id':0, 'image_uris':1})
