@@ -92,7 +92,7 @@ df_table = pd.DataFrame(table_data)
 		
 selection = aggrid_interactive_table(df=df_table)
 
-if selection:
+if selection != False:
 	st.write("You selected:")
 	card_name = selection["selected_rows"][0]['name']
 	img_uri = img_uri(card_name)
