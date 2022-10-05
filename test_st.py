@@ -84,7 +84,8 @@ set_select = st.sidebar.selectbox(
 )
 
 st.sidebar.markdown(
-    "For more information on keywords: [Keyword Wiki]('https://en.wikipedia.org/wiki/List_of_Magic:_The_Gathering_keywords')"
+	"For more information on keywords: [Keyword Wiki](https://en.wikipedia.org/wiki/List_of_Magic:_The_Gathering_keywords)",
+	unsafe_allow_html=True
 )
 
 table_data = get_table_data(set_select)
