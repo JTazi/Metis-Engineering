@@ -49,8 +49,10 @@ def img_uri(card_name):
 	db = client.mtg
 	cursor = db.cards.find({'name':card_name},{'_id':0, 'image_uris':1})
 	cur_list = list(cursor)
-	image_uri = cur_list[0]['image_uris']['normal'] 
-	return image_uri
+	if cur_list[0]['image_uris'] != []
+		image_uri = cur_list[0]['image_uris']['normal'] 
+		return image_uri
+	return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
 
 def aggrid_interactive_table(df: pd.DataFrame):
     """Creates an st-aggrid interactive table based on a dataframe.
