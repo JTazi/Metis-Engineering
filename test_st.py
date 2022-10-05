@@ -99,5 +99,6 @@ st.header("Card Image")
 
 if selection["selected_rows"] != []:
 	card_name = selection["selected_rows"][0]['name']
-	img_uri = img_uri(card_name)
-	st.image(img_uri)
+	if card_name != False:
+		img_uri = img_uri(card_name)
+		st.image(img_uri)
