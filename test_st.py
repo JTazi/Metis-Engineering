@@ -1,4 +1,8 @@
-# streamlit_app.py
+# Author: John Tazioli
+# Metis Engineering Project
+# cited code:
+#https://github.com/streamlit/example-app-interactive-table/blob/main/streamlit_app.py
+#https://docs.streamlit.io/knowledge-base/tutorials/databases/mongodb
 
 import streamlit as st
 import pymongo
@@ -25,8 +29,8 @@ st.write("Go ahead, click on a row in the table below!")
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-	#**st.secrets["mongo"]
-	return pymongo.MongoClient('mongodb+srv://jtaz:mtg123!!!@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority')
+	#'mongodb+srv://jtaz:mtg123!!!@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority'
+	return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
 
