@@ -6,6 +6,8 @@ import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
+mana_dict = {"Red":"R", "Blue":"U", "White":"W", "Black":"B", "Green":"G", "Colorless":""}
+
 st.set_page_config(
     layout="centered", page_icon='https://github.com/JTazi/Metis-Engineering/blob/901e6b1f820c12b29199ef635e835f4f2d395280/kisspng-magic-the-gathering-duels-of-the-planeswalker-magic-the-gathering-commander-5b1c8faf3cc9e6.955806671528598447249.png', page_title="MTG Table App"
 )
@@ -27,11 +29,10 @@ client = init_connection()
 
 # Pull data from the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def get_table_data():
+@st.experimental_memo(ttl=1200)
+def get_table_data(mana):
 	db = client.mtg
-	#'_id':0, 'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1
-	cursor = db.cards.find({'type_line':'Creature — Sliver'}, {'_id':0, 'name':1, 'released_at':1, 'mana_cost':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
+	cursor = db.cards.find({'color_identity':mana_dict[mana_select]}, {'_id':0, 'name':1, 'cmc':1, 'type_line':1, 'power':1,'toughness':1,'set_name':1, 'rarity':1})
 	table_data = list(cursor)  # make hashable for st.experimental_memo
 	return table_data
 
@@ -72,9 +73,9 @@ def aggrid_interactive_table(df: pd.DataFrame):
     return selection
  
 # USer input on sidebar
-add_selectbox = st.sidebar.selectbox(
+mana_select = st.sidebar.selectbox(
     "What color mana do you want to see?",
-    ("Red", "Blue", "White", "Black", "Green")
+    ("Red", "Blue", "White", "Black", "Green", "Colorless")
 )	
 
 		
