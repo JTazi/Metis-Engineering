@@ -31,7 +31,7 @@ st.write("Go ahead, click on a row in the table below!")
 @st.experimental_singleton
 def init_connection():
 	#**st.secrets["mongo"]
-	return pymongo.MongoClient('mongodb+srv://jtaz:mtg123!!!@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority')
+	return pymongo.MongoClient('mongodb+srv://username:password@mtgcluster.yrodbby.mongodb.net/?retryWrites=true&w=majority')
 
 client = init_connection()
 
